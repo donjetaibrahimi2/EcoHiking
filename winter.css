@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background: #143234;
+}
+
+.title,
+.intro,
+.categories {
+    text-align: center;
+    color: aliceblue;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.intro {
+    margin-bottom: 30px;
+}
+
+.categories {
+    margin-bottom: 20px;
+}
+
+.categories button {
+    padding: 8px 16px;
+    margin: 5px;
+    border: none;
+    background: #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.filters {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.guides-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+}
+
+.guide-card {
+    background: white;
+    width: 45%;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s;
+    box-sizing: border-box;
+}
+
+.guide-card img {
+    width: 100%;
+    border-radius: 12px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.guide-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.center-card {
+    width: 60%;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.pagination button {
+    padding: 8px 14px;
+    margin: 4px;
+    border-radius: 5px;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background: #bbb;
+}
+
+.active-page {
+    background: #333;
+    color: white;
+}
+
+@media (max-width:800px) {
+
+    .guide-card,
+    .center-card {
+        width: 100% !important;
+    }
+
+    .guide-card img {
+        height: 180px;
+    }
+}

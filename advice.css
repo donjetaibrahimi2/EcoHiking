@@ -1,0 +1,97 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #121212;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+}
+
+.hero {
+  background-color: #1e1e1e;
+  background: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.hero .container {
+  width: 92%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  padding-top: 36px
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.nav a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px
+}
+
+.header {
+  background: url("https://www.hedonistichiking.com/wp-content/uploads/2025/08/52200429919_77ed120bf9_o.jpg") center/cover no-repeat;
+  padding: 15% 20px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+}
+
+header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.container1 {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.tip-card {
+  background: #1e1e1e;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  transition: 0.2s ease;
+}
+
+.tip-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.8);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 26px;
+  color: #ffffff;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e0e0e0;
+}

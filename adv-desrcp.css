@@ -1,0 +1,111 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #143234;
+  margin: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08)
+}
+
+.back {
+  margin-bottom: 16px
+}
+
+.back a {
+  color: #333;
+  text-decoration: none;
+}
+
+.top {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.top img {
+  width: 380px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.info h1 {
+  margin: 0 0 8px;
+}
+
+.info p {
+  margin: 6px 0;
+  color: #444;
+}
+
+.section {
+  margin-top: 22px;
+}
+
+.section h3 {
+  margin-bottom: 8px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.ticket-box {
+  margin-top: 18px;
+  padding: 14px;
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+select,
+input[type=number] {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.final {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 14px;
+  background: #111;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.map iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.gallery img {
+  width: 48%;
+  margin: 1%;
+  border-radius: 8px;
+  object-fit: cover;
+  height: 150px;
+}
+
+@media(max-width:800px) {
+  .top img {
+    width: 100%;
+    height: 220px
+  }
+}

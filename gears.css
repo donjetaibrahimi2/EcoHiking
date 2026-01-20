@@ -1,0 +1,149 @@
+:root {
+  --bg: #071213;
+  --card: #0f2627;
+  --accent: #d4c06b;
+  --muted: rgba(255, 255, 255, 0.75);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: #eaf0f0;
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 28px auto;
+  padding: 26px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  margin: 0;
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 820px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 26px;
+  margin-top: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 18px;
+  border-radius: 8px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  margin: 0 0 8px;
+}
+
+ul {
+  margin: 8px 0 12px 18px;
+}
+
+.small {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #071213;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.gear-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.gear-item img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #091515;
+}
+
+.note {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.checklist li {
+  margin-bottom: 8px;
+}
+
+footer {
+  margin-top: 22px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+}
+
+@media (max-width:900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark mode */
+body.dark {
+  background: #0e0f11;
+  color: #e5e5e5;
+}
+
+body.dark .gear-card {
+  background: #181a1d;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+}
+
+body.dark h2 {
+  color: #fff;
+}
+
+body.dark .reviews {
+  border-top-color: #333;
+}
+
+body.dark .review {
+  border-bottom-color: #333;
+}
+
+body.dark header p {
+  color: #f2f2f2;
+}
+
+body.dark .buy-links a {
+  background: #2d7a6d;
+}
+
+body.dark .buy-links a:hover {
+  background: #236358;
+}

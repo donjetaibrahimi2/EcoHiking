@@ -1,0 +1,140 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background: #143234;
+}
+
+.hero {
+  background-color: #143234;
+  background: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.hero .container {
+  width: 92%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  padding-top: 36px
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.nav a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: aliceblue;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 30px;
+  color: aliceblue;
+}
+
+.categories {
+  text-align: center;
+  margin-bottom: 20px;
+  color: aliceblue;
+}
+
+.categories button {
+  padding: 8px 16px;
+  margin: 5px;
+  border: none;
+  background: #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.filters {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.guides-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
+
+}
+
+.guide-card {
+  background: white;
+  width: 45%;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .2s;
+  box-sizing: border-box;
+}
+
+.guide-card img {
+  width: 100%;
+  border-radius: 12px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.guide-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.center-card {
+  width: 60%;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  margin: 4px;
+  border-radius: 5px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background: #bbb;
+}
+
+.active-page {
+  background: #333;
+  color: white;
+}
+
+@media (max-width:800px) {
+
+  .guide-card,
+  .center-card {
+    width: 100% !important;
+  }
+
+  .guide-card img {
+    height: 180px
+  }
+}

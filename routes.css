@@ -1,0 +1,75 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #121212;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: url("https://www.rei.com/dam/parrish_091412_0679_main_lg.jpg") center/cover no-repeat;
+  padding: 100px 20px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+}
+
+header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.route-card {
+  background: #1e1e1e;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  transition: 0.2s ease;
+}
+
+.route-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.8);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 26px;
+  color: #ffffff;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+.buy-links a {
+  padding: 8px 14px;
+  background: #388e3c;
+  color: white;
+  border-radius: 6px;
+  margin-right: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  text-decoration: none;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+.buy-links a:hover {
+  background: #2e6b2c;
+}

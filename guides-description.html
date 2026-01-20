@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Guide Details</title>
+ <link rel="stylesheet" href="css/guides-desc.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="back"><a href="guides.html">← Back to Guides</a></div>
+
+  <div class="top">
+    <img id="guideImg" src="images/placeholder.jpg" alt="guide image">
+    <div class="info">
+      <h1 id="guideTitle">Loading...</h1>
+      <p><strong>Date:</strong> <span id="guideDate"></span></p>
+      <p><strong>Location:</strong> <span id="guideLocation"></span></p>
+      <p><strong>Base price:</strong> <span id="basePrice"></span></p>
+      <p><strong>Difficulty:</strong> <span id="difficulty"></span></p>
+      <p><strong>Duration:</strong> <span id="duration"></span></p>
+      <p><strong>Distance:</strong> <span id="distance"></span></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>1. About the Destination</h3>
+    <p id="desc"></p>
+  </div>
+
+  <div class="section">
+    <h3>2. Itinerary</h3>
+    <ul id="itinerary">
+      <li>Departure: 07:00 AM</li>
+      <li>Arrival/Start hike: 09:00 AM</li>
+      <li>Hiking duration: depends on guide</li>
+      <li>Return: approx. evening</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>3. Difficulty</h3>
+    <p id="diffText"></p>
+  </div>
+
+  <div class="section">
+    <h3>4. What to bring</h3>
+    <ul id="equipment"></ul>
+  </div>
+
+  <div class="section map">
+    <h3>5. Map</h3>
+    <div id="mapWrap"><iframe id="mapFrame" src="" loading="lazy"></iframe></div>
+  </div>
+
+  <div class="section">
+    <h3>6. Gallery</h3>
+    <div class="gallery">
+      <img id="g1" src="images/hiking1.jpg" alt="hiking1">
+      <img id="g2" src="images/hiking2.jpg" alt="hiking2">
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>7. Transport</h3>
+    <p id="transport">Bus included. Meeting point: City center (time shown in itinerary).</p>
+  </div>
+
+  <div class="section">
+    <h3>8. Safety</h3>
+    <ul>
+      <li>Stay with the group</li>
+      <li>Follow guide instructions</li>
+      <li>Wear proper shoes</li>
+      <li>Bring water and emergency kit</li>
+    </ul>
+  </div>
+
+  <!-- Ticket system -->
+  <div class="ticket-box">
+    <h3>Tickets</h3>
+    <label>Ticket type:</label>
+    <select id="ticketType" onchange="updatePrice()">
+      <option value="regular">Regular Ticket</option>
+      <option value="student">Student Ticket (-30%)</option>
+    </select>
+
+    <div style="margin-top:8px;">
+      <label>Number of tickets:</label>
+      <input type="number" id="tickets" value="1" min="1" max="10" onchange="updatePrice()">
+    </div>
+
+    <div class="final" id="finalPrice">Final Price: </div>
+
+    <button class="btn" onclick="continueBooking()">Continue (requires login)</button>
+  </div>
+
+</div>
+
+<script>
+/* ===========================
+   guidesData: descriptions etc
+   =========================== */
+const guidesData = {
+  "Liqeni i Leqanatit": {
+    description: "Liqeni i Leqanatit ofron shëtitje të lehta buzë ujit dhe pamje të qeta. Ideale për familje dhe fillestarë.",
+    difficulty: "Easy",
+    duration: "2–3 hours",
+    distance: "4–6 km",
+    equipment: ["Light shoes", "Water", "Hat", "Snack"],
+    mapQuery: "Liqeni i Leqanatit"
+  },
+  "Bjeshkët e Sharrit": {
+    description: "Bjeshkët e Sharrit ofrojnë shtegje malore me pamje të mrekullueshme — pak më të vështira por shumë shpërblyese.",
+    difficulty: "Moderate",
+    duration: "4–6 hours",
+    distance: "8–12 km",
+    equipment: ["Hiking boots", "Layers", "Water 1.5L", "Snacks", "Jacket"],
+    mapQuery: "Sharri Mountains"
+  },
+  "Maja e Gjeravicës": {
+    description: "Ngjitja në Maja e Gjeravicës është një ekskursion i vështirë me terren të shkëmbor — për aventurierët e përgatitur.",
+    difficulty: "Hard",
+    duration: "6–10 hours",
+    distance: "12–18 km",
+    equipment: ["Good hiking boots", "Warm layers", "Map & compass", "Extra food & water", "First aid"],
+    mapQuery: "Gjeravica peak"
+  },
+  "Liqeni & Ujvara e Zanave": {
+    description: "Kombinimi i liqenit dhe ujvarës ofron rrugë të qeta dhe vende të shkëlqyera për fotografi.",
+    difficulty: "Moderate",
+    duration: "3–4 hours",
+    distance: "6–8 km",
+    equipment: ["Hiking shoes", "Rain jacket", "Water", "Camera"],
+    mapQuery: "Liqeni dhe Ujvara e Zanave"
+  },
+  "Shtegu i Gështenjave": {
+    description: "Një shteg i lehtë mes pemëve të gështenjave, i përshtatshëm për familje dhe shëtitje të qeta pranë natyrës.",
+    difficulty: "Easy",
+    duration: "1.5–3 hours",
+    distance: "3–5 km",
+    equipment: ["Light shoes", "Water", "Picnic"],
+    mapQuery: "Shtegu i Gështenjave"
+  },
+  "Guri i Kuq": {
+    description: "Një shteg më i shkurtër por pak tekniko–shkëmbor drejt formacioneve shkëmbore të njohura si Guri i Kuq.",
+    difficulty: "Moderate",
+    duration: "3–5 hours",
+    distance: "5–7 km",
+    equipment: ["Hiking boots", "Gloves (optional)", "Water", "Sturdy backpack"],
+    mapQuery: "Guri i Kuq"
+  },
+  "Sharri i Brodit": {
+    description: "Sharri i Brodit është një shteg malor me pamje panoramike, i përshtatshëm për grupe që duan natyrë dhe qetësi.",
+    difficulty: "Moderate",
+    duration: "3–5 hours",
+    distance: "6–10 km",
+    equipment: ["Hiking boots", "Water 1L+", "Wind jacket", "Snacks"],
+    mapQuery: "Sharri i Brodit"
+  }
+};
+
+/* READ URL params */
+const params = new URLSearchParams(window.location.search);
+const date = params.get('date') || '';
+const locationName = params.get('location') || '';
+const priceParam = params.get('price') || '0€';
+const img = params.get('img') || 'images/placeholder.jpg';
+
+/* SET TOP INFO */
+document.getElementById('guideDate').innerText = date;
+document.getElementById('guideLocation').innerText = locationName;
+document.getElementById('basePrice').innerText = priceParam;
+document.getElementById('guideImg').src = img;
+document.getElementById('guideTitle').innerText = locationName ? `${locationName} — ${date}` : 'Guide Details';
+
+/* LOAD details from guidesData if exists */
+if (guidesData[locationName]) {
+  const g = guidesData[locationName];
+  document.getElementById('desc').innerText = g.description;
+  document.getElementById('difficulty').innerText = g.difficulty;
+  document.getElementById('duration').innerText = g.duration;
+  document.getElementById('distance').innerText = g.distance;
+  // equipment list
+  const ul = document.getElementById('equipment');
+  ul.innerHTML = '';
+  g.equipment.forEach(it => {
+    const li = document.createElement('li'); li.textContent = it; ul.appendChild(li);
+  });
+  // map
+  document.getElementById('mapFrame').src = "https://www.google.com/maps?q=" + encodeURIComponent(g.mapQuery) + "&output=embed";
+} else {
+  // fallback map if no guide data
+  document.getElementById('desc').innerText = "Detailed info coming soon.";
+  document.getElementById('mapFrame').src = "https://www.google.com/maps?q=" + encodeURIComponent(locationName || "Kosovo") + "&output=embed";
+}
+
+/* PRICE logic */
+let base = parseFloat((priceParam+"").replace("€","").trim()) || 0;
+
+function updatePrice(){
+  const type = document.getElementById('ticketType').value;
+  const qty = parseInt(document.getElementById('tickets').value) || 1;
+  let final = base;
+  if (type === 'student') final = base * 0.70; // -30%
+  const total = final * qty;
+  document.getElementById('finalPrice').innerText = `Final Price: ${total.toFixed(2)}€ (${qty} × ${final.toFixed(2)}€)`;
+}
+
+/* start */
+updatePrice();
+
+/* Continue button (login required) */
+function continueBooking(){
+  alert("You must log in or register to continue booking. (This demo shows ticket price calculation only.)");
+}
+</script>
+
+</body>
+</html>
