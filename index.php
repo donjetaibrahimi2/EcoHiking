@@ -30,9 +30,9 @@ error_reporting(E_ALL);
         <div class="links">
           <a href="index.php">Home</a>
           <a href="guides.php">Guides</a>
-          <a href="blog.html">Blog</a>
-          <a href="contact.html">Contact</a>
-          <a href="advice.html">Advice</a>
+          <a href="blog.php">Blog</a>
+          <a href="contact.php">Contact</a>
+          <a href="advice.php">Advice</a>
           <a href="signin.php" class="signin"><i class="fa-solid fa-user">
           </i></a>
           
